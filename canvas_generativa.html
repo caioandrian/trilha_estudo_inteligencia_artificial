@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas da IA Generativa — Trilha de IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="canvas-page">
+
+      <header class="canvas-topbar" id="canvasTopbar">
+        <a href="index.html" class="canvas-topbar__back" aria-label="Voltar para a trilha">← Voltar</a>
+        <h1 class="canvas-topbar__title">Canvas da IA Generativa</h1>
+        <div class="canvas-topbar__theme" role="group" aria-label="Alternar tema">
+          <span class="theme-switch__label" id="themeLabel" style="font-size:0.78rem;font-weight:700;color:var(--text)">Tema escuro</span>
+          <button type="button" class="theme-switch__toggle" id="themeToggle" role="switch" aria-checked="false" aria-labelledby="themeLabel" style="margin-left:0.35rem">
+            <span class="theme-switch__thumb" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <main class="canvas-main">
+
+        <!-- Manager bar -->
+        <div class="canvas-manager" id="canvasManager">
+          <span class="canvas-manager__label">Canvas salvos</span>
+          <select class="canvas-select" id="canvasSelect" aria-label="Selecionar canvas existente">
+            <option value="">Selecione um canvas…</option>
+          </select>
+          <div class="canvas-manager__actions">
+            <button type="button" class="btn btn--primary" id="btnNewCanvas">+ Novo Canvas</button>
+            <button type="button" class="btn btn--ghost" id="btnDeleteCanvas" disabled>Apagar</button>
+            <button type="button" class="btn btn--ghost" id="btnCopyCanvas" disabled>Copiar Dados</button>
+            <button type="button" class="btn btn--ghost" id="btnImportCanvas">Importar Rascunho</button>
+          </div>
+        </div>
+
+        <!-- Empty state -->
+        <div class="canvas-empty-state" id="canvasEmptyState">
+          <p>Nenhum canvas selecionado.<br>Crie um novo canvas ou selecione um existente acima.</p>
+          <button type="button" class="btn btn--primary" id="btnNewCanvasEmpty">+ Criar Novo Canvas</button>
+        </div>
+
+        <!-- Canvas form -->
+        <div id="canvasFormWrap" style="display:none">
+          <div class="canvas-save-bar">
+            <span class="canvas-save-status" id="canvasSaveStatus">Pronto para editar</span>
+            <span style="font-size:0.8rem;color:var(--muted)" id="canvasCurrentName"></span>
+          </div>
+
+          <form class="canvas-form" id="canvasForm" autocomplete="off">
+
+            <!-- Seção 1: 3 colunas — Tarefa | Dor | Solução e Escopo -->
+            <div class="canvas-grid canvas-grid--3col">
+
+              <div class="canvas-cell">
+                <label class="canvas-label" for="f_tarefa">Tarefa</label>
+                <textarea
+                  class="canvas-field"
+                  id="f_tarefa"
+                  name="tarefa"
+                  placeholder="Qual tarefa atualmente executada por colaboradores ou clientes você quer abordar? (ex: responder as 50 perguntas mais frequentes no chat de suporte, redigir propostas comerciais, classificar feedbacks de clientes…)"
+                  rows="8"
+                ></textarea>
+              </div>
+
+              <div class="canvas-cell">
+                <label class="canvas-label" for="f_dor">Dor</label>
+                <textarea
+                  class="canvas-field"
+                  id="f_dor"
+                  name="dor"
+                  placeholder="Quanto tempo essa tarefa consome? Qual o custo financeiro atual? Qual o nível de erro ou inconsistência na execução hoje? O que é mais doloroso nessa operação?"
+                  rows="8"
+                ></textarea>
+              </div>
+
+              <div class="canvas-cell">
+                <label class="canvas-label" for="f_solucao_escopo">Solução e Escopo</label>
+                <textarea
+                  class="canvas-field"
+                  id="f_solucao_escopo"
+                  name="solucao_escopo"
+                  placeholder="Qual é a solução proposta com IA Generativa? É ampliação das capacidades humanas (colaborador mantém decisão final) ou automação completa da tarefa? Defina o escopo."
+                  rows="8"
+                ></textarea>
+              </div>
+
+            </div>
+
+            <!-- Seção 2: 3 colunas — Viabilidade Técnica | Agregação de Valor | Riscos -->
+            <div class="canvas-grid canvas-grid--3col">
+
+              <div class="canvas-cell">
+                <label class="canvas-label" for="f_viabilidade_tecnica">Viabilidade Técnica</label>
+                <textarea
+                  class="canvas-field"
+                  id="f_viabilidade_tecnica"
+                  name="viabilidade_tecnica"
+                  placeholder="A IA consegue realizar essa tarefa com qualidade suficiente? Serão usados dados proprietários (precisarão ser curados)? É necessário ajuste de estilo, tom de voz ou integração com sistemas internos?"
+                  rows="7"
+                ></textarea>
+              </div>
+
+              <div class="canvas-cell">
+                <label class="canvas-label" for="f_agregacao_valor">Agregação de Valor</label>
+                <textarea
+                  class="canvas-field"
+                  id="f_agregacao_valor"
+                  name="agregacao_valor"
+                  placeholder="Qual é o impacto esperado? Redução de custos operacionais? Aceleração do crescimento? Melhoria do nível de serviço ao cliente? Tente quantificar mesmo que em ordem de grandeza."
+                  rows="7"
+                ></textarea>
+              </div>
+
+              <div class="canvas-cell">
+                <label class="canvas-label" for="f_riscos">Riscos</label>
+                <textarea
+                  class="canvas-field"
+                  id="f_riscos"
+                  name="riscos"
+                  placeholder="Quais riscos precisam ser mitigados? Confiabilidade das respostas (alucinações)? Vieses do modelo? Conformidade com LGPD? Segurança de informações confidenciais?"
+                  rows="7"
+                ></textarea>
+              </div>
+
+            </div>
+
+          </form>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- Import dialog -->
+    <dialog class="canvas-import-dialog" id="importDialog" aria-labelledby="importDialogTitle">
+      <div class="canvas-import-dialog__panel">
+        <h2 class="canvas-import-dialog__title" id="importDialogTitle">Importar Rascunho</h2>
+        <p class="canvas-import-dialog__hint">
+          Cole abaixo o JSON copiado de um canvas existente. O rascunho será adicionado como um novo canvas.
+        </p>
+        <textarea
+          id="importDialogTextarea"
+          class="canvas-import-dialog__textarea"
+          placeholder='{"titulo":"canvas_generativa_1","campos":{"tarefa":"...","dor":"...","solucao_escopo":"...","viabilidade_tecnica":"...","agregacao_valor":"...","riscos":"..."}}'
+          rows="7"
+          spellcheck="false"
+        ></textarea>
+        <p class="canvas-import-dialog__error" id="importDialogError"></p>
+        <div class="canvas-import-dialog__actions">
+          <button type="button" class="btn btn--primary" id="btnImportConfirm">Importar</button>
+          <button type="button" class="btn btn--ghost" id="btnImportCancel">Cancelar</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      const CANVAS_PREFIX = 'canvas_generativa_';
+      const THEME_KEY = 'trilha_theme_pref';
+      const FIELDS = ['tarefa', 'dor', 'solucao_escopo', 'viabilidade_tecnica', 'agregacao_valor', 'riscos'];
+
+      // ── Theme ──────────────────────────────────────────────────────────
+      (function initTheme() {
+        const saved = localStorage.getItem(THEME_KEY);
+        const isLight = saved === 'light';
+        document.documentElement.setAttribute('data-theme', isLight ? 'light' : 'dark');
+        const btn = document.getElementById('themeToggle');
+        const label = document.getElementById('themeLabel');
+        if (btn) btn.setAttribute('aria-checked', isLight ? 'true' : 'false');
+        if (label) label.textContent = isLight ? 'Tema claro' : 'Tema escuro';
+        btn?.addEventListener('click', () => {
+          const nowLight = document.documentElement.getAttribute('data-theme') === 'light';
+          const next = nowLight ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem(THEME_KEY, next);
+          btn.setAttribute('aria-checked', next === 'light' ? 'true' : 'false');
+          if (label) label.textContent = next === 'light' ? 'Tema claro' : 'Tema escuro';
+        });
+      })();
+
+      // ── Topbar height ──────────────────────────────────────────────────
+      function syncTopbar() {
+        const tb = document.getElementById('canvasTopbar');
+        if (tb) document.documentElement.style.setProperty('--canvas-topbar-h', tb.getBoundingClientRect().height + 'px');
+      }
+      window.addEventListener('load', syncTopbar);
+      window.addEventListener('resize', syncTopbar);
+
+      // ── Canvas storage helpers ─────────────────────────────────────────
+      function getCanvasList() {
+        const keys = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith(CANVAS_PREFIX)) keys.push(key);
+        }
+        return keys.sort((a, b) => {
+          const na = parseInt(a.replace(CANVAS_PREFIX, ''), 10);
+          const nb = parseInt(b.replace(CANVAS_PREFIX, ''), 10);
+          return na - nb;
+        });
+      }
+
+      function getNextCanvasKey() {
+        const existing = getCanvasList();
+        let maxNum = 0;
+        for (const key of existing) {
+          const num = parseInt(key.replace(CANVAS_PREFIX, ''), 10);
+          if (!isNaN(num) && num > maxNum) maxNum = num;
+        }
+        return CANVAS_PREFIX + (maxNum + 1);
+      }
+
+      function loadCanvas(key) {
+        const raw = localStorage.getItem(key);
+        if (!raw) return null;
+        try { return JSON.parse(raw); } catch { return null; }
+      }
+
+      function saveCanvas(key, campos) {
+        const data = { titulo: key, campos };
+        localStorage.setItem(key, JSON.stringify(data));
+      }
+
+      function deleteCanvas(key) {
+        localStorage.removeItem(key);
+      }
+
+      // ── State ──────────────────────────────────────────────────────────
+      let currentKey = null;
+      let saveStatusTimer = null;
+
+      // ── UI elements ────────────────────────────────────────────────────
+      const canvasSelect    = document.getElementById('canvasSelect');
+      const btnNew          = document.getElementById('btnNewCanvas');
+      const btnNewEmpty     = document.getElementById('btnNewCanvasEmpty');
+      const btnDelete       = document.getElementById('btnDeleteCanvas');
+      const btnCopy         = document.getElementById('btnCopyCanvas');
+      const btnImport       = document.getElementById('btnImportCanvas');
+      const emptyState      = document.getElementById('canvasEmptyState');
+      const formWrap        = document.getElementById('canvasFormWrap');
+      const saveStatus      = document.getElementById('canvasSaveStatus');
+      const currentNameEl   = document.getElementById('canvasCurrentName');
+      const importDialog    = document.getElementById('importDialog');
+      const importTextarea  = document.getElementById('importDialogTextarea');
+      const importError     = document.getElementById('importDialogError');
+      const btnImportOk     = document.getElementById('btnImportConfirm');
+      const btnImportCancel = document.getElementById('btnImportCancel');
+
+      // ── Populate select ────────────────────────────────────────────────
+      function populateSelect(selectKey) {
+        const keys = getCanvasList();
+        canvasSelect.innerHTML = '<option value="">Selecione um canvas…</option>';
+        for (const k of keys) {
+          const opt = document.createElement('option');
+          opt.value = k;
+          opt.textContent = k;
+          if (k === selectKey) opt.selected = true;
+          canvasSelect.appendChild(opt);
+        }
+      }
+
+      // ── Load canvas into form ──────────────────────────────────────────
+      function loadIntoForm(key) {
+        currentKey = key;
+        const data = loadCanvas(key);
+        const campos = data?.campos || {};
+        for (const f of FIELDS) {
+          const el = document.getElementById('f_' + f);
+          if (el) el.value = campos[f] || '';
+        }
+        emptyState.style.display = 'none';
+        formWrap.style.display = '';
+        currentNameEl.textContent = key;
+        setSaveStatus('saved');
+        btnDelete.disabled = false;
+        btnCopy.disabled = false;
+      }
+
+      function showEmptyState() {
+        currentKey = null;
+        formWrap.style.display = 'none';
+        emptyState.style.display = '';
+        btnDelete.disabled = true;
+        btnCopy.disabled = true;
+        currentNameEl.textContent = '';
+      }
+
+      // ── Save status ────────────────────────────────────────────────────
+      function setSaveStatus(state) {
+        if (saveStatusTimer) { clearTimeout(saveStatusTimer); saveStatusTimer = null; }
+        if (state === 'saving') {
+          saveStatus.textContent = 'Salvando…';
+          saveStatus.className = 'canvas-save-status';
+        } else if (state === 'saved') {
+          saveStatus.textContent = '✓ Salvo automaticamente';
+          saveStatus.className = 'canvas-save-status canvas-save-status--saved';
+          saveStatusTimer = setTimeout(() => {
+            saveStatus.textContent = 'Pronto para editar';
+            saveStatus.className = 'canvas-save-status';
+          }, 2500);
+        }
+      }
+
+      // ── Auto-save on input ─────────────────────────────────────────────
+      document.getElementById('canvasForm').addEventListener('input', () => {
+        if (!currentKey) return;
+        const campos = {};
+        for (const f of FIELDS) {
+          const el = document.getElementById('f_' + f);
+          campos[f] = el ? el.value : '';
+        }
+        setSaveStatus('saving');
+        saveCanvas(currentKey, campos);
+        setSaveStatus('saved');
+      });
+
+      // ── Select change ──────────────────────────────────────────────────
+      canvasSelect.addEventListener('change', () => {
+        const key = canvasSelect.value;
+        if (!key) { showEmptyState(); return; }
+        loadIntoForm(key);
+      });
+
+      // ── New canvas ─────────────────────────────────────────────────────
+      function createNewCanvas() {
+        const key = getNextCanvasKey();
+        saveCanvas(key, Object.fromEntries(FIELDS.map(f => [f, ''])));
+        populateSelect(key);
+        canvasSelect.value = key;
+        loadIntoForm(key);
+      }
+      btnNew.addEventListener('click', createNewCanvas);
+      btnNewEmpty.addEventListener('click', createNewCanvas);
+
+      // ── Delete canvas ──────────────────────────────────────────────────
+      btnDelete.addEventListener('click', () => {
+        if (!currentKey) return;
+        const ok = confirm('Apagar o canvas "' + currentKey + '"? Esta ação não pode ser desfeita.');
+        if (!ok) return;
+        deleteCanvas(currentKey);
+        populateSelect(null);
+        canvasSelect.value = '';
+        showEmptyState();
+      });
+
+      // ── Copy canvas data ───────────────────────────────────────────────
+      btnCopy.addEventListener('click', async () => {
+        if (!currentKey) return;
+        const raw = localStorage.getItem(currentKey) || '';
+        try {
+          await navigator.clipboard.writeText(raw);
+          const orig = btnCopy.textContent;
+          btnCopy.textContent = 'Copiado!';
+          setTimeout(() => { btnCopy.textContent = orig; }, 2000);
+        } catch {
+          prompt('Copie o JSON abaixo:', raw);
+        }
+      });
+
+      // ── Import dialog ──────────────────────────────────────────────────
+      btnImport.addEventListener('click', () => {
+        importTextarea.value = '';
+        importError.textContent = '';
+        importError.classList.remove('canvas-import-dialog__error--visible');
+        importDialog.showModal();
+        importTextarea.focus();
+      });
+
+      btnImportCancel.addEventListener('click', () => { importDialog.close(); });
+      importDialog.addEventListener('click', (e) => { if (e.target === importDialog) importDialog.close(); });
+
+      btnImportOk.addEventListener('click', () => {
+        const raw = importTextarea.value.trim();
+        importError.classList.remove('canvas-import-dialog__error--visible');
+        if (!raw) {
+          importError.textContent = 'Cole um JSON válido antes de importar.';
+          importError.classList.add('canvas-import-dialog__error--visible');
+          return;
+        }
+        let parsed;
+        try { parsed = JSON.parse(raw); } catch {
+          importError.textContent = 'JSON inválido. Verifique o texto colado.';
+          importError.classList.add('canvas-import-dialog__error--visible');
+          return;
+        }
+        const campos = parsed.campos;
+        if (!campos || typeof campos !== 'object') {
+          importError.textContent = 'Estrutura inválida. O JSON deve ter um campo "campos" com os dados do canvas.';
+          importError.classList.add('canvas-import-dialog__error--visible');
+          return;
+        }
+        const key = getNextCanvasKey();
+        saveCanvas(key, campos);
+        populateSelect(key);
+        canvasSelect.value = key;
+        loadIntoForm(key);
+        importDialog.close();
+      });
+
+      // ── Init ───────────────────────────────────────────────────────────
+      populateSelect(null);
+      showEmptyState();
+    </script>
+  </body>
+</html>

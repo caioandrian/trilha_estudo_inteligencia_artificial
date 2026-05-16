@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($basePath = \"C:\\\\Users\\\\csant\\\\Documents\\\\github\\\\trilha_estudo_qualidade\"; Get-ChildItem -Path $basePath -Recurse -Force | % { $path = $_.FullName.Replace\\($basePath, \"\"\\); $type = if\\($_.PSIsContainer\\){\"[DIR]\"}else{\"[FILE]\"}; \"$type $path\" } | Sort-Object)"
+    ]
+  }
+}
