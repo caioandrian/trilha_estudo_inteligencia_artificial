@@ -359,6 +359,184 @@
           }
         ]
       }
+    },
+    {
+      "id": "ia-driven-sobre",
+      "ordem": 11,
+      "titulo": "Sobre IA-driven",
+      "contexto": "IA-driven",
+      "atividades": [],
+      "teoria": {
+        "titulo": "Sobre IA-driven",
+        "secoes": [
+          {
+            "titulo": "O que é tomada de decisão orientada por IA?",
+            "paragrafos": [
+              "IA-driven é o modelo de gestão e operação em que a Inteligência Artificial orienta — e em alguns casos executa — as decisões de negócio. Não se trata de substituir o julgamento humano, mas de amplificá-lo com dados, padrões e predições que seriam impossíveis de processar manualmente.",
+              "Enquanto a IA Clássica foca em predizer resultados específicos e a IA Generativa foca em produzir conteúdo, o conceito de IA-driven é mais amplo: trata da integração da inteligência artificial nos fluxos de decisão da organização, desde o nível operacional até o estratégico.",
+              "Uma organização IA-driven não usa IA de forma pontual ou experimental — ela a incorpora sistematicamente nos seus processos de decisão, com dados estruturados, modelos em produção e ciclos contínuos de melhoria."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ia-driven-fluxo",
+      "ordem": 12,
+      "titulo": "Fluxo de Processo de Decisão",
+      "contexto": "IA-driven",
+      "atividades": [],
+      "teoria": {
+        "titulo": "Fluxo de Processo de Decisão",
+        "secoes": [
+          {
+            "titulo": "Do dado à decisão",
+            "paragrafos": [
+              "O fluxo de uma decisão orientada por IA segue uma cadeia clara: Big Data → IA → Sugestões → Julgamento Humano → Decisões de Negócio.",
+              "Big Data: o ponto de partida é o volume de dados estruturados e não estruturados gerados pela operação digital — transações, interações, comportamentos, sensores, mercado.",
+              "IA: os modelos processam esses dados em escala e velocidade impossíveis para humanos, identificando padrões, anomalias e probabilidades.",
+              "Sugestões: a saída da IA não é uma ordem — é uma sugestão qualificada. A IA apresenta alternativas ranqueadas por probabilidade de sucesso, risco ou impacto.",
+              "Julgamento Humano: o ser humano incorpora à decisão os inputs não digitais — contexto político, relações interpessoais, ética, experiência, intuição. Esses elementos são invisíveis para os modelos e determinantes para decisões de qualidade.",
+              "Decisões de Negócio: o resultado final é uma decisão mais orientada e mais assertiva — não porque o humano foi substituído, mas porque ele passou a decidir com muito mais informação de qualidade."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ia-driven-paradoxo",
+      "ordem": 13,
+      "titulo": "Paradoxo de Escolhas",
+      "contexto": "IA-driven",
+      "atividades": [],
+      "teoria": {
+        "titulo": "Paradoxo de Escolhas",
+        "secoes": [
+          {
+            "titulo": "Mais opções, mais paralisia",
+            "paragrafos": [
+              "O Paradoxo de Escolhas é um fenômeno cognitivo bem documentado: quanto maior o número de opções disponíveis, maior a probabilidade de ansiedade, arrependimento e paralisia na tomada de decisão. O excesso de alternativas não liberta — ele imobiliza.",
+              "No contexto empresarial, esse paradoxo se manifesta em diversas situações: quais produtos lançar, quais clientes priorizar, quais rotas de entrega usar, quais campanhas ativar. Com big data, o número de variáveis e alternativas explodiuo — e a capacidade humana de avaliar todas elas não acompanhou esse crescimento.",
+              "A IA como mitigadora do paradoxo de escolha opera em quatro dimensões:",
+              "Direcionamento para opções com maior qualidade: em vez de apresentar 500 alternativas, a IA filtra e ranqueia as 3 ou 5 com maior probabilidade de sucesso dado o contexto específico.",
+              "Redução da responsabilidade pessoal exclusiva: quando a recomendação é fundamentada em dados e modelos, o peso da decisão é distribuído — o gestor decide com apoio, não sozinho contra sua intuição.",
+              "Diminuição do atraso na tomada de decisão: a velocidade de processamento da IA elimina o tempo gasto em análises manuais, reduzindo o ciclo decisório de dias para horas ou minutos.",
+              "Melhoria da qualidade média das decisões: ao longo do tempo, as decisões guiadas por modelos preditivos tendem a ser mais consistentes e menos suscetíveis a vieses cognitivos individuais."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ia-driven-niveis",
+      "ordem": 14,
+      "titulo": "Níveis de Tomada de Decisão IA-driven",
+      "contexto": "IA-driven",
+      "atividades": [],
+      "teoria": {
+        "titulo": "Níveis de Tomada de Decisão IA-driven",
+        "secoes": [
+          {
+            "titulo": "Estrutura da Implementação",
+            "paragrafos": [
+              "A implementação de um modelo IA-driven não acontece de uma vez. Ela evolui por níveis de maturidade, cada um exigindo maior sofisticação de dados, infraestrutura e cultura organizacional.",
+              "A base técnica de qualquer implementação percorre quatro etapas: Coleta (captura estruturada de dados), Estruturação (organização e qualidade dos dados), Análise (exploração, correlação e predição) e Automação (IA atuando diretamente nas decisões)."
+            ]
+          },
+          {
+            "titulo": "Nível 1 — Suporte à Decisão",
+            "paragrafos": [
+              "Etapas envolvidas: Coleta + Estruturação.",
+              "Com a coleta de grandes volumes de dados e sua organização em dashboards e relatórios, os humanos passam a decidir com muito maior embasamento. A IA ainda não recomenda — ela informa.",
+              "Limitação: ainda muito dependente da capacidade de análise crítica do humano. O valor gerado é proporcional à qualidade da leitura que o tomador de decisão faz dos dados disponíveis."
+            ]
+          },
+          {
+            "titulo": "Nível 2 — Amplificação da Decisão",
+            "paragrafos": [
+              "Etapas envolvidas: Estruturação + Análise.",
+              "Com base em dados estruturados, a IA aplica análises exploratórias (sobre dados históricos) e análises preditivas para recomendar múltiplas alternativas de decisão, já ranqueadas por probabilidade de sucesso ou impacto.",
+              "É aqui que o Paradoxo de Escolhas é mais diretamente combatido: em vez de o humano avaliar dezenas de alternativas, a IA apresenta as mais promissoras com justificativa baseada em dados. O humano mantém o julgamento final — mas com o campo já filtrado e ordenado."
+            ]
+          },
+          {
+            "titulo": "Nível 3 — Automação da Decisão",
+            "paragrafos": [
+              "Etapas envolvidas: Coleta + Estruturação + Análise + Automação.",
+              "A IA atua diretamente nas decisões, sem intervenção humana em cada ciclo. É o nível de maior maturidade e também de maior risco — adequado apenas para domínios onde os critérios são bem definidos, os erros são toleráveis e os dados de feedback são abundantes.",
+              "Exemplo clássico: controle de fraudes em compras com cartão de crédito. O modelo analisa cada transação em milissegundos, compara com padrões históricos do usuário e decide aprovar ou bloquear — sem aguardar aprovação humana. O humano define as regras e monitora o sistema; a IA executa as decisões em escala."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "analise-dados-ada",
+      "ordem": 15,
+      "titulo": "ADA — Advanced Data Analysis",
+      "contexto": "Análise de Dados com IA",
+      "atividades": [],
+      "teoria": {
+        "titulo": "ADA — Advanced Data Analysis",
+        "secoes": [
+          {
+            "titulo": "O que é o ADA?",
+            "paragrafos": [
+              "O ADA (Advanced Data Analysis) é uma funcionalidade do ChatGPT que permite fazer análise de dados diretamente no chat — sem escrever código, sem instalar ferramentas, sem precisar de um analista de dados dedicado.",
+              "Você envia um arquivo (CSV, Excel, PDF, imagem ou outros formatos) e instrui o modelo em linguagem natural. O ADA executa código Python internamente, processa os dados e retorna análises, visualizações e insights — tudo em segundos.",
+              "É uma das aplicações mais imediatas e de alto impacto da IA Generativa no ambiente de negócios: qualquer pessoa com acesso a dados pode extrair valor deles sem barreira técnica."
+            ]
+          },
+          {
+            "titulo": "Exemplo prático: planilha de vendas de uma farmácia",
+            "paragrafos": [
+              "Imagine um arquivo (CSV, Excel, PDF ou imagem) com dados de vendas contendo colunas como: nome do produto, categoria, preço unitário, local da venda e data da venda.",
+              "Com esse arquivo carregado no ADA, você pode fazer perguntas como:",
+              "\"Faça uma análise exploratória sobre o arquivo\" — o modelo retorna um resumo estatístico completo: distribuição das variáveis, valores ausentes, tipos de dado, faixas de preço, categorias mais frequentes.",
+              "\"Faça um gráfico de distribuição das vendas ao longo do tempo\" — o ADA gera automaticamente um gráfico de série temporal, identificando tendências, sazonalidade e picos de venda.",
+              "\"Faça uma análise de outliers (fora do padrão) dentre as categorias de produtos\" — o modelo identifica categorias com comportamento atípico de preço, volume ou frequência, e explica o que está fora do padrão e por quê.",
+              "\"Faça um resumo dos principais insights disponíveis nessa base de dados\" — o ADA consolida as descobertas mais relevantes em linguagem acessível, pronta para ser usada em uma apresentação ou relatório.",
+              "O resultado é uma análise que levaria horas de trabalho manual entregue em minutos — com código auditável e visualizações prontas para uso."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "data-scraping-browse",
+      "ordem": 16,
+      "titulo": "Browse AI — Data Scraping com IA",
+      "contexto": "Data Scraping com IA",
+      "atividades": [],
+      "teoria": {
+        "titulo": "Browse AI — Data Scraping com IA",
+        "secoes": [
+          {
+            "titulo": "O que é o Browse AI?",
+            "paragrafos": [
+              "Browse AI (browse.ai) é uma ferramenta de web scraping com interface visual, sem necessidade de código. Com ela, você \"treina\" um robô para capturar informações de qualquer página da web de forma estruturada, classificada e automatizada.",
+              "O diferencial em relação ao scraping tradicional é a simplicidade: você aponta para os elementos que quer capturar na tela do navegador, e o Browse AI aprende o padrão e passa a monitorar aquela página continuamente — detectando e registrando automaticamente novos registros.",
+              "Os dados capturados podem ser integrados diretamente ao Google Sheets, alimentando uma planilha que se atualiza sozinha sempre que há novidades na fonte monitorada."
+            ]
+          },
+          {
+            "titulo": "Para que serve na prática?",
+            "paragrafos": [
+              "Monitoramento de concorrentes: acompanhe automaticamente as páginas de produtos, preços e promoções dos concorrentes. Sempre que um preço mudar, seu Google Sheets é atualizado.",
+              "E-commerce: monitore variações de preço de produtos em marketplaces, rastreando oportunidades de compra ou ajustes de precificação própria.",
+              "Notícias e reputação: capture automaticamente menções em portais, blogs e fóruns relevantes para o seu setor, sem precisar monitorar manualmente cada fonte.",
+              "Dados de mercado: agregue informações públicas de múltiplas fontes (listagens, classificados, portais setoriais) em uma base centralizada e estruturada.",
+              "O Browse AI transforma dados dispersos e não estruturados da web em informação organizada e continuamente atualizada — sem escrever uma linha de código."
+            ]
+          },
+          {
+            "titulo": "Referência",
+            "paragrafos": [
+              "Site oficial e planos: browse.ai/pricing"
+            ]
+          }
+        ]
+      }
     }
   ]
 }

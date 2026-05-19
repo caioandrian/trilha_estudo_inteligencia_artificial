@@ -251,6 +251,27 @@ article {
   border-color: rgba(14, 165, 233, 0.65);
 }
 
+/* IA-driven → indigo */
+.context-nav__active-only--indigo {
+  background: rgba(99, 102, 241, 0.2);
+  color: #c7d2fe;
+  border-color: rgba(99, 102, 241, 0.65);
+}
+
+/* Análise de Dados com IA → emerald */
+.context-nav__active-only--emerald {
+  background: rgba(52, 211, 153, 0.2);
+  color: #a7f3d0;
+  border-color: rgba(52, 211, 153, 0.65);
+}
+
+/* Data Scraping com IA → orange */
+.context-nav__active-only--orange {
+  background: rgba(249, 115, 22, 0.2);
+  color: #fed7aa;
+  border-color: rgba(249, 115, 22, 0.65);
+}
+
 .context-nav {
   display: flex;
   flex-wrap: wrap;
@@ -358,6 +379,57 @@ article {
   background: rgba(14, 165, 233, 0.2);
   color: #e0f2fe;
   border-color: rgba(14, 165, 233, 0.62);
+}
+
+/* IA-driven → indigo */
+.context-nav__btn--indigo {
+  border-color: rgba(99, 102, 241, 0.42);
+}
+
+.context-nav__btn--indigo:hover {
+  background: rgba(99, 102, 241, 0.14);
+  color: #c7d2fe;
+  border-color: rgba(99, 102, 241, 0.55);
+}
+
+.context-nav__btn--indigo.context-nav__btn--active {
+  background: rgba(99, 102, 241, 0.2);
+  color: #e0e7ff;
+  border-color: rgba(99, 102, 241, 0.65);
+}
+
+/* Análise de Dados com IA → emerald */
+.context-nav__btn--emerald {
+  border-color: rgba(52, 211, 153, 0.42);
+}
+
+.context-nav__btn--emerald:hover {
+  background: rgba(52, 211, 153, 0.14);
+  color: #6ee7b7;
+  border-color: rgba(52, 211, 153, 0.55);
+}
+
+.context-nav__btn--emerald.context-nav__btn--active {
+  background: rgba(52, 211, 153, 0.2);
+  color: #a7f3d0;
+  border-color: rgba(52, 211, 153, 0.65);
+}
+
+/* Data Scraping com IA → orange */
+.context-nav__btn--orange {
+  border-color: rgba(249, 115, 22, 0.42);
+}
+
+.context-nav__btn--orange:hover {
+  background: rgba(249, 115, 22, 0.14);
+  color: #fdba74;
+  border-color: rgba(249, 115, 22, 0.55);
+}
+
+.context-nav__btn--orange.context-nav__btn--active {
+  background: rgba(249, 115, 22, 0.2);
+  color: #fed7aa;
+  border-color: rgba(249, 115, 22, 0.65);
 }
 
 .context-nav__btn--complete .context-nav__check {
@@ -734,6 +806,54 @@ html[data-theme="light"] .topic-btn__badge {
 
 .topic-btn--current.topic-btn--ctx-cicd .topic-btn__title {
   color: #e0f2fe;
+}
+
+/* IA-driven → indigo */
+.topic-btn--current.topic-btn--ctx-indigo {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.65);
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+.topic-btn--current.topic-btn--ctx-indigo:not(.topic-btn--done) .topic-btn__badge {
+  background: rgba(99, 102, 241, 0.25);
+  color: #e0e7ff;
+}
+
+.topic-btn--current.topic-btn--ctx-indigo .topic-btn__title {
+  color: #e0e7ff;
+}
+
+/* Análise de Dados com IA → emerald */
+.topic-btn--current.topic-btn--ctx-emerald {
+  background: rgba(52, 211, 153, 0.2);
+  border-color: rgba(52, 211, 153, 0.65);
+  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.2);
+}
+
+.topic-btn--current.topic-btn--ctx-emerald:not(.topic-btn--done) .topic-btn__badge {
+  background: rgba(52, 211, 153, 0.22);
+  color: #a7f3d0;
+}
+
+.topic-btn--current.topic-btn--ctx-emerald .topic-btn__title {
+  color: #a7f3d0;
+}
+
+/* Data Scraping com IA → orange */
+.topic-btn--current.topic-btn--ctx-orange {
+  background: rgba(249, 115, 22, 0.2);
+  border-color: rgba(249, 115, 22, 0.65);
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.2);
+}
+
+.topic-btn--current.topic-btn--ctx-orange:not(.topic-btn--done) .topic-btn__badge {
+  background: rgba(249, 115, 22, 0.22);
+  color: #fed7aa;
+}
+
+.topic-btn--current.topic-btn--ctx-orange .topic-btn__title {
+  color: #fed7aa;
 }
 
 html[data-theme="light"] .topic-btn--current.topic-btn--ctx-logica {

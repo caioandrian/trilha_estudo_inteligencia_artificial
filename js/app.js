@@ -95,6 +95,9 @@ function topicHasTheory(topico) {
  */
 function contextNavVariantClass(/** @type {string} */ label) {
   const ctx = label || "";
+  if (/scraping|scrapping/i.test(ctx)) return "context-nav__btn--orange";
+  if (/an[aá]lise\s+de\s+dados/i.test(ctx)) return "context-nav__btn--emerald";
+  if (/ia.driven|driven/i.test(ctx)) return "context-nav__btn--indigo";
   if (/prompt/i.test(ctx)) return "context-nav__btn--cicd";
   if (/generativa/i.test(ctx)) return "context-nav__btn--github";
   if (/cl[aá]ssica/i.test(ctx)) return "context-nav__btn--cypress";
@@ -102,9 +105,11 @@ function contextNavVariantClass(/** @type {string} */ label) {
   return "context-nav__btn--logica";
 }
 
-/** @returns {"topic-btn--ctx-logica" | "topic-btn--ctx-cypress" | "topic-btn--ctx-github" | "topic-btn--ctx-cicd"} */
 function topicBtnContextClass(/** @type {string} */ contextoLabel) {
   const v = contextNavVariantClass(contextoLabel);
+  if (v.includes("orange")) return "topic-btn--ctx-orange";
+  if (v.includes("emerald")) return "topic-btn--ctx-emerald";
+  if (v.includes("indigo")) return "topic-btn--ctx-indigo";
   if (v.includes("github")) return "topic-btn--ctx-github";
   if (v.includes("cypress")) return "topic-btn--ctx-cypress";
   if (v.includes("cicd")) return "topic-btn--ctx-cicd";
